@@ -1,3 +1,4 @@
+//Importation de la bibliotheque material dart qui gere le disagn system et fourni des composants de base
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: const MyHomePage(title: 'p001_flutter'),
     );
   }
 }
@@ -47,13 +48,45 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.camera_alt),
+            tooltip: 'Reset',
+            onPressed: () {
+              setState(() {
+                _counter = 0;
+              });
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            tooltip: 'Delete',
+            onPressed: () {
+              setState(() {
+                _counter = 0;
+              });
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            tooltip: 'Delete',
+            onPressed: () {
+              setState(() {
+                _counter = 0;
+              });
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            //ajouter les elements de la page comment dans la page de watchapp
+
             const Text(
-              'You have pushed the button this many times:',
+              'Vous avez appuyé plusieurs fois sur le bouton :',
             ),
             Text(
               '$_counter',
@@ -62,6 +95,30 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      //ajouter un navigation bar pour naviguer entre les pages comme la bar de navigation de watchapp la bar doit avoir 4 boutons
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        iconSize: 20, // Réduit la taille des icônes
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.update),
+            label: 'Update',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.groups),
+            label: 'Communities',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Calls',
+          ),
+        ],
+      ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
