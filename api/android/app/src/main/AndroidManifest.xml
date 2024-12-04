@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="userapp"
+        android:label="api"
         android:name="${applicationName}"
-        android:icon="@mipmap/design_sans_titre">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
