@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'p001_flutter'),
+      home: const MyHomePage(title: 'Whatsapp'),
     );
   }
 }
@@ -83,15 +83,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //ajouter les elements de la page comment dans la page de watchapp
-
-            const Text(
-              'Vous avez appuyé plusieurs fois sur le bouton :',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            //ajouter  des ListView.separated pour afficher la liste des contacts
+            ListView.separated(
+              shrinkWrap: true,
+              itemCount: 7,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text('Contact $index'),
+                  subtitle: Text('Phone number $index'),
+                  leading: const Icon(Icons.person),
+                  trailing: const Icon(Icons.call),
+                );
+              },
+              separatorBuilder: (context, index) => const Divider(),
+            )
           ],
         ),
       ),
